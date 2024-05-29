@@ -1,0 +1,5 @@
+During our team's internal weekly meeting, we decided:
+  1. Start working on feature extraction and data preprosessing based on what we learned in those papers
+  2. Feature extraction focuses on 2 directions: URL analysis, message body content analysis
+  3. Schedule another meeting to discuss our findings on June 4th.
+  4. Classifiers will be finally decided after feature initial analysis.
