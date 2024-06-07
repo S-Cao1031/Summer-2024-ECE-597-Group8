@@ -1,0 +1,17 @@
+vectorizer = CountVectorizer()
+X = vectorizer.fit_transform(phishing['Text'])
+df = pd.DataFrame(X.toarray(), columns=vectorizer.get_feature_names_out())
+#  
+word_freq = df.sum(axis=0)
+#  
+sorted_word_freq = word_freq.sort_values(ascending=False)
+# 转换为 DataFrame
+sorted_word_freq_df = pd.DataFrame(sorted_word_freq).reset_index()
+sorted_word_freq_df.columns = ['Word', 'Frequency']
+
+#  
+sorted_word_freq_df.to_csv('high_frequency.csv', index=False)
+# print(sorted_word_freq)
+
+
+# print(tfidf_df)
