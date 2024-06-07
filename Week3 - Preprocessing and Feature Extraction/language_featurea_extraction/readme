@@ -1,0 +1,20 @@
+The tool returns a dataset containing the following features:
+
+length: Length of the message
+num_links: Number of links
+num_special_chars: Number of special characters
+meaningful_words_percentage: Percentage of meaningful words
+num_keywords: Number of keywords (specific implementation not provided in the code)
+num_languages: Number of detected languages
+primary_language_label: Numeric label of the primary language
+primary_language_words: Number of words in the primary language
+second_language_label: Numeric label of the second language
+second_language_words: Number of words in the second language
+
+Notes:
+
+If the language cannot be detected in the message, language labels will be set to 'unknown'.
+When there are no meaningful words in the message, meaningful words percentage will be set to 0.
+This tool uses the langdetect library for language detection.
+
+Author: Xinyi Chen
