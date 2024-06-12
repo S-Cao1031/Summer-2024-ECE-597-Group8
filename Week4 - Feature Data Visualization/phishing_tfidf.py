@@ -99,6 +99,7 @@ def preprocessing(phishing):
     return phishing
 
 def feature_extract_tfidf(phishing):
+    phishing = preprocessing(phishing)
     # tf-idf
     phishing.loc[:, 'Text'] = phishing.apply(lambda row: ' '.join(row['Subject']) + ' ' + ' '.join(row['Body']), axis=1)
     # initialize tfidf vectorizer
@@ -113,7 +114,6 @@ def phishing_tfidf(csv_path):
     phishing = pd.read_csv(csv_path, usecols=['Subject', 'Body'])
     # 2576 ，subject 2467non-null，datatype=object， body 2571non-null，datatype=object
     # phishing.info()
-    phishing = preprocessing(phishing)
     tfidf_df = feature_extract_tfidf(phishing)
     return tfidf_df
 
