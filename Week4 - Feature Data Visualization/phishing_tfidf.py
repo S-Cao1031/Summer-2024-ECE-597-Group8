@@ -121,7 +121,7 @@ def phishing_tfidf(csv_path):
 
 def main():
     result = phishing_tfidf('CaptstoneProjectData_2024.csv')
-    print(result)
+    # print(result)
     return result
 
 if __name__ == "__main__":

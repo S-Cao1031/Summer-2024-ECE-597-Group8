@@ -121,7 +121,7 @@ def phishing_bow(csv_path):
 
 def main():
     result = phishing_bow('CaptstoneProjectData_2024.csv')
-    print(result)
+    # print(result)
     # result.to_csv('bow_phishing_text.csv', index=False)
     return result
 
