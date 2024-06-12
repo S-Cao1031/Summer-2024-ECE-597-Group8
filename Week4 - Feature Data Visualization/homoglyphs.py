@@ -19,11 +19,10 @@ def count_homoglyphs_scripts(text):
 def feature_homoglyphs(data):
     data["Subject"] = data["Subject"].apply(clean_homoglyphs)
     data["Body"] = data["Body"].apply(clean_homoglyphs)
-    data["Homoglyphs Scripts Count"] = data.apply(
+    homoglyph_series = data.apply(
         lambda row: count_homoglyphs_scripts(row["Subject"] + " " + row["Body"]), axis=1
     )
-    data.drop(columns=["Subject", "Body"], inplace=True)
-    return data[["Homoglyphs Scripts Count"]]
+    return pd.DataFrame(homoglyph_series, columns=['Homoglyphs'])
 
 
 def normal_extract_subject_body(text):
@@ -49,7 +48,7 @@ def main():
 
     phishing_data = pd.read_csv(phishing_data_path)
     normal_data = pd.read_csv(
-        normal_data_path, nrows=10000
+        normal_data_path, nrows=2500
     )  # Read only 5000 rows of normal data for now
 
     phishing_data.drop(columns=["Unnamed: 2", "Unnamed: 3"], inplace=True)

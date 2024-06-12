@@ -1,9 +1,7 @@
 import re
 import pandas as pd
 
-# Load the datasets
-emails_normal = pd.read_csv('emails.csv', usecols=['message'])
-emails_phishing = pd.read_csv('CaptstoneProjectData_2024.csv')
+
 
 def extract_advanced_features(message):
     # Continue extracting these non-URL related features
@@ -36,30 +34,38 @@ def process_email_text(text):
 
     return subject, cleaned_text
 
-# Example application of new feature extraction
-emails_normal['features'] = emails_normal['message'].apply(extract_features_from_message)
-emails_phishing['features'] = emails_phishing.apply(
-    lambda row: extract_features_from_message(
-        str(row['Subject']) + ' ' + str(row['Body'])
-    ), axis=1
-)
 
-# Convert the extracted features to DataFrame
-columns = ['length', 'num_links', 'num_special_chars', 'num_keywords', 'num_ip_addresses', 'html_tags', 'js_code']
-emails_normal_features_df = pd.DataFrame(emails_normal['features'].tolist(), columns=columns)
-emails_phishing_features_df = pd.DataFrame(emails_phishing['features'].tolist(), columns=columns)
-print(emails_normal_features_df)
-print(emails_phishing_features_df)
-# # Save the extracted features to CSV files
-# emails_normal_features_df.to_csv('emails_normal_features1.csv', index=False)
-# emails_phishing_features_df.to_csv('emails_phishing_features1.csv', index=False)
-#
-# def print_summary(title, summary):
-#     print(f"{title}")
-#     print(f"{'Homoglyphs':<10} {'Scripts':<10} Count")
-#     for i, count in enumerate([summary['Homoglyphs'], summary['Scripts']], start=0):
-#         print(f"{i:<10} {count:<10} {count}")
-#
-# print_summary("Phishing Data", summary_phishing)
-# print_summary("Normal Data", summary_normal)
 
+def main():
+    # Load the datasets
+    emails_normal = pd.read_csv('emails.csv', usecols=['message'])
+    emails_phishing = pd.read_csv('CaptstoneProjectData_2024.csv')
+    # Example application of new feature extraction
+    emails_normal['features'] = emails_normal['message'].apply(extract_features_from_message)
+    emails_phishing['features'] = emails_phishing.apply(
+        lambda row: extract_features_from_message(
+            str(row['Subject']) + ' ' + str(row['Body'])
+        ), axis=1
+    )
+
+    # Convert the extracted features to DataFrame
+    columns = ['length', 'num_links', 'num_special_chars', 'num_keywords', 'num_ip_addresses', 'html_tags', 'js_code']
+    emails_normal_features_df = pd.DataFrame(emails_normal['features'].tolist(), columns=columns)
+    emails_phishing_features_df = pd.DataFrame(emails_phishing['features'].tolist(), columns=columns)
+    print(emails_normal_features_df)
+    print(emails_phishing_features_df)
+    # # Save the extracted features to CSV files
+    # emails_normal_features_df.to_csv('emails_normal_features1.csv', index=False)
+    # emails_phishing_features_df.to_csv('emails_phishing_features1.csv', index=False)
+    #
+    # def print_summary(title, summary):
+    #     print(f"{title}")
+    #     print(f"{'Homoglyphs':<10} {'Scripts':<10} Count")
+    #     for i, count in enumerate([summary['Homoglyphs'], summary['Scripts']], start=0):
+    #         print(f"{i:<10} {count:<10} {count}")
+    #
+    # print_summary("Phishing Data", summary_phishing)
+    # print_summary("Normal Data", summary_normal)
+
+if __name__ == "__main__":
+    main()
