@@ -99,7 +99,7 @@ def preprocessing(phishing):
     return phishing
 
 def feature_extract_tfidf(phishing):
-    phishing = preprocessing(phishing)
+    phishing = preprocessing(phishing).copy()
     # tf-idf
     phishing.loc[:, 'Text'] = phishing.apply(lambda row: ' '.join(row['Subject']) + ' ' + ' '.join(row['Body']), axis=1)
     # initialize tfidf vectorizer
@@ -109,6 +109,8 @@ def feature_extract_tfidf(phishing):
 
     tfidf_df = pd.DataFrame(tfidf_matrix.toarray(), columns=vectorizer.get_feature_names_out())
     # tfidf_df.to_csv('tfidf_phishing_text.csv', index=False)
+    # Rename columns to include 'tfidf_' prefix
+    tfidf_df = tfidf_df.rename(columns=lambda x: 'tfidf_' + x)
     return tfidf_df
 def phishing_tfidf(csv_path):
     phishing = pd.read_csv(csv_path, usecols=['Subject', 'Body'])
@@ -119,7 +121,7 @@ def phishing_tfidf(csv_path):
 
 def main():
     result = phishing_tfidf('CaptstoneProjectData_2024.csv')
-    # print(result)
+    print(result)
     return result
 
 if __name__ == "__main__":
