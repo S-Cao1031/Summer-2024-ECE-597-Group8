@@ -69,7 +69,7 @@ def lemmatize(token_list):
 def preprocessing(phishing):
     # keep dup
     # remove uninformative rows - null
-    phishing = phishing.dropna()
+    # phishing = phishing.dropna()
     # 2463
     # phishing.info()
 
