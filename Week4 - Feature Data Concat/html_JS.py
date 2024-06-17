@@ -1,18 +1,16 @@
 import re
 import pandas as pd
 
-def extract_advanced_features(message):
-    # Extract features related to HTML tags and JavaScript code
-    html_tags = bool(re.search(r'<[^>]+>', message))
-    js_code = bool(re.search(r'<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>', message))
-    return html_tags, js_code
-
 def extract_features_from_message(message):
     # Preprocess the email text to extract the subject and clean the body
-    subject, cleaned_message = process_email_text(message)
+    subject_match = re.search(r"Subject: (.*)", message)
+    subject = subject_match.group(1) if subject_match else "Subject Not Found"
+    cleaned_message = re.sub(r"Message-ID:.*?X-FileName:.*?\n", "", message, flags=re.S)
 
-    # Use the cleaned message for HTML tags and JavaScript extraction
-    html_tags, js_code = extract_advanced_features(cleaned_message)
+    # Extract number of HTML tags and JavaScript code blocks
+    html_tags = len(re.findall(r'<[^>]+>', cleaned_message))
+    js_code = len(re.findall(r'<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>', cleaned_message))
+
     return html_tags, js_code
 
 def process_email_text(text):
