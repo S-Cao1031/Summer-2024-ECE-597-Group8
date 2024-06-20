@@ -35,6 +35,20 @@
 - Week 5: Do data analysis and visualization on all features except BOW and TF-IDF. 
   - Implement the training pipeline template (based on Guo’s work), experiment a few transformers on features and TF-IDF features (using SVM). 
   - Propose to change boolean type features to number count, adopt the code to this change. 
+## Weilong Qian
 
+- Week 1: Attend seminars and ask questions
+- Week 2: Literature review&summerize
+- Week 3: Data preprocessing and extracting Keyword feature by using TF-IDF
+- Week 4: Testing the performance of Keyword feature by changing the feature number
+- Week 5:  Create instruments file for members not familiar with models  
+
+## Mingxi Guo
+
+- Week 1: Attend seminars, study 597 guidelines and ask questions
+- Week 2: Literature review
+- Week 3: Feature Extraction: abnormal number
+- Week 4: modify the feature to adjust performance
+- Week 5:  implement the training template
 
 
