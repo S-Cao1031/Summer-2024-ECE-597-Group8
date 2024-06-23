@@ -12,6 +12,7 @@
   - Train model with balanced data ratio in the following scenarios:
   - Random forest with TF-IDF feature dataset (with LDR, without LDR)
   - Random forest with BoW feature dataset (with LDR, without LDR)
+- Week 6: add word2Vec feature extraction codes 
 
 ## Zixia Li
 - Week 1: Attend seminars, study 597 guidelines and ask questions
