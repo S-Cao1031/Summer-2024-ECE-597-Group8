@@ -38,7 +38,8 @@ def evaluate_model(model, X, y, cv=3):
 
     # Print classification report
     print("Classification Report:")
-    print(classification_report(y, y_pred))
+    print(classification_report(y, y_pred, zero_division=1)) # too bad some data cannot make any predictions and the encounter "/Library/Python/3.9/site-packages/sklearn/metrics/_classification.py:1509: UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 in labels with no predicted samples. Use zero_division parameter to control this behavior.
+  #_warn_prf(average, modifier, f"{metric.capitalize()} is", len(result)) " error
 
     # Print confusion matrix
     print("Confusion Matrix:")

@@ -109,13 +109,13 @@ bow_log_transform = FunctionTransformer(np.log1p, validate=True)
 bow_transformer_robust = make_pipeline(bow_log_transform,RobustScaler())
 
 bow_transformer_min_max = make_pipeline(
-    FunctionTransformer(np.log1p, validate=True),  # 应用对数变换
-    MinMaxScaler()  # 使用 MinMaxScaler 进行缩放
+    FunctionTransformer(np.log1p, validate=True),  # apply log transform
+    MinMaxScaler()  # apply MinMaxScaler to scale the data
 )
 
 bow_transformer_standard = make_pipeline(
-    FunctionTransformer(np.log1p, validate=True),  # 应用对数变换
-    StandardScaler()  # 使用 StandardScaler 进行标准化
+    FunctionTransformer(np.log1p, validate=True),  # log transform
+    StandardScaler()  # apply StandardScaler to standardize
 )
 
 features_preprocessor = ColumnTransformer(

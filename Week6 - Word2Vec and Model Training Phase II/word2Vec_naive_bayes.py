@@ -37,7 +37,7 @@ def evaluate_model(model, X, y, cv=3):
 
     # Print classification report
     print("Classification Report:")
-    print(classification_report(y, y_pred))
+    print(classification_report(y, y_pred, zero_division=1))
 
     # Print confusion matrix
     print("Confusion Matrix:")
