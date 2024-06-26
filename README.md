@@ -12,7 +12,8 @@
   - Train model with balanced data ratio in the following scenarios:
   - Random forest with TF-IDF feature dataset (with LDR, without LDR)
   - Random forest with BoW feature dataset (with LDR, without LDR)
-- Week 6: add word2Vec feature extraction codes 
+- Week 6: add word2Vec feature extraction codes
+  - initial model training Random forest, naive bayes. train with 3 types of features: TFIDF, BoW, word2Vec. and apply techniques like: pca and fld to transform features to see if can get better or worse results.
 
 ## Zixia Li
 - Week 1: Attend seminars, study 597 guidelines and ask questions
