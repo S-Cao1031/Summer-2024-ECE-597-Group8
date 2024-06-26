@@ -5,14 +5,17 @@
 - Week 1: Host Discussion meeting, study 597 guidelines and proposed questions
 - Week 2: literature review, search and read papers related to phishing email and data characteristics, and summarize into a doc; discuss with teammates and exchange ideas
 - Week 3: data preprocessing and extract features by using TF-IDF
-- Week 4: extract features by using bag-of-words,
+- Week 4:
+  - extract features by using bag-of-words,
   - encapsulate TF-IDF feature extraction codes
   - Bag-of-word feature extract codes implement and encapsulate
-- Week 5: add feature extraction codes for email length
+- Week 5:
+  - add feature extraction codes for email length
   - Train model with balanced data ratio in the following scenarios:
   - Random forest with TF-IDF feature dataset (with LDR, without LDR)
   - Random forest with BoW feature dataset (with LDR, without LDR)
-- Week 6: add word2Vec feature extraction codes
+- Week 6:
+  - add word2Vec feature extraction codes
   - initial model training Random forest, naive bayes. train with 3 types of features: TFIDF, BoW, word2Vec. and apply techniques like: pca and fld to transform features to see if can get better or worse results.
 
 ## Zixia Li
@@ -34,7 +37,8 @@
 - Week 2: Literature review
 - Week 3: Feature Extraction: Extract Homoglyphs features. 
 - Week 4: Combine the feature extraction functions and generate processed datasets. 
-- Week 5: Do data analysis and visualization on all features except BOW and TF-IDF. 
+- Week 5:
+  - Do data analysis and visualization on all features except BOW and TF-IDF. 
   - Implement the training pipeline template (based on Guo’s work), experiment a few transformers on features and TF-IDF features (using SVM). 
   - Propose to change boolean type features to number count, adopt the code to this change. 
 ## Weilong Qian
