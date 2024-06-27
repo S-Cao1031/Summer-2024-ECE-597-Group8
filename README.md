@@ -46,6 +46,8 @@
   - Do data analysis and visualization on all features except BOW and TF-IDF. 
   - Implement the training pipeline template (based on Guo’s work), experiment a few transformers on features and TF-IDF features (using SVM). 
   - Propose to change boolean type features to number count, adopt the code to this change. 
+- Week 6: Combined the Word2Vec feature functions and generate processed datasets.
+
 ## Weilong Qian
 
 - Week 1: Attend seminars and ask questions
