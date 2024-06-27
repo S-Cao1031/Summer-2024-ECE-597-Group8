@@ -1,0 +1,100 @@
+import os
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+from sklearn.compose import ColumnTransformer
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import (
+    accuracy_score,
+    balanced_accuracy_score,
+    classification_report,
+    confusion_matrix,
+    precision_recall_curve,
+    roc_auc_score,
+    roc_curve,
+    average_precision_score
+)
+from sklearn.model_selection import cross_val_predict, train_test_split
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import RobustScaler
+from sklearn.tree import DecisionTreeClassifier
+
+project_root = "D:\\夏夏\\pythonProject7"
+random_state = 42
+test_size = 0.1
+
+# Load the data
+df = pd.read_csv(
+    os.path.join(project_root, "features_tfidf_labels.csv")
+)
+
+# Check the columns to ensure the DataFrame structure
+print(df.columns)
+
+# Define the function to evaluate the model
+def evaluate_model(model, X, y, cv=3):
+    y_scores = cross_val_predict(model, X, y, cv=cv, method='predict_proba')[:, 1]
+    y_pred = (y_scores > 0.5).astype(int)
+    print("Classification Report:")
+    print(classification_report(y, y_pred))
+    print("Confusion Matrix:")
+    print(confusion_matrix(y, y_pred))
+    accuracy = accuracy_score(y, y_pred)
+    balanced_accuracy = balanced_accuracy_score(y, y_pred)
+    print(f"Accuracy: {accuracy:.2f}")
+    print(f"Balanced Accuracy: {balanced_accuracy:.2f}")
+    roc_auc = roc_auc_score(y, y_scores)
+    print(f"ROC-AUC Score: {roc_auc:.2f}")
+    average_precision = average_precision_score(y, y_scores)
+    print(f"Average Precision-Recall Score: {average_precision:.2f}")
+    precision, recall, _ = precision_recall_curve(y, y_scores)
+    plt.figure()
+    plt.plot(recall, precision, label=f'Precision-Recall curve (area = {average_precision:.2f})')
+    plt.xlabel('Recall')
+    plt.ylabel('Precision')
+    plt.ylim([0.0, 1.05])
+    plt.xlim([0.0, 1.0])
+    plt.title('Precision-Recall Curve')
+    plt.legend(loc="upper right")
+    plt.show()
+    fpr, tpr, _ = roc_curve(y, y_scores)
+    plt.figure()
+    plt.plot(fpr, tpr, label=f'ROC curve (area = {roc_auc:.2f})')
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('ROC Curve')
+    plt.legend(loc="lower right")
+    plt.show()
+
+# Prepare features and labels
+X = df.drop(columns=["Label"])
+y = df["Label"]
+
+# Split the data into training and testing sets
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
+
+# Feature preprocessor
+features_preprocessor = ColumnTransformer(
+    transformers=[
+        ('scale', RobustScaler(), X.columns.tolist())  # Apply scaling to all columns
+    ],
+    remainder="passthrough"
+)
+
+# Create a pipeline with the preprocessor and DecisionTreeClassifier
+pipeline = Pipeline(
+    steps=[
+        ('preprocessor', features_preprocessor),
+        ('classifier', DecisionTreeClassifier(random_state=random_state))
+    ]
+)
+
+# Fit the model
+pipeline.fit(X_train, y_train)
+
+# Evaluate the model
+evaluate_model(pipeline, X_train, y_train)
+
+# Evaluate on the entire dataset for comparison
+evaluate_model(pipeline, X, y)
