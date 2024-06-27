@@ -5,13 +5,11 @@ import pandas as pd
 from sklearn.compose import ColumnTransformer
 from sklearn.metrics import (
     accuracy_score,
-    auc,
     average_precision_score,
-    classification_report,
-    confusion_matrix,
     precision_recall_curve,
     roc_auc_score,
     roc_curve,
+    balanced_accuracy_score
 )
 from sklearn.model_selection import train_test_split
 from sklearn.pipeline import make_pipeline, Pipeline
@@ -53,7 +51,7 @@ def evaluate_model(model, X, y, plot_curves=False):
     roc_auc = roc_auc_score(y, y_scores)
     average_precision = average_precision_score(y, y_scores)
     precision, recall, f1, _ = precision_recall_fscore_support(y, y_pred, average='binary')
-
+    balanced_accuracy = balanced_accuracy_score(y, y_pred)
 
     if plot_curves:
         # Plot ROC Curve
@@ -79,7 +77,7 @@ def evaluate_model(model, X, y, plot_curves=False):
         plt.legend(loc="upper right")
         plt.show()
 
-    return accuracy, roc_auc, average_precision, precision, recall, f1
+    return accuracy, roc_auc, average_precision, precision, recall, f1, balanced_accuracy
 
 def bool_to_int(x):
     return x.astype(int)
@@ -153,6 +151,7 @@ print(f"Average Precision-Recall Score: {avg_results[2]:.2f}")
 print(f"Precision: {avg_results[3]:.2f}")
 print(f"Recall: {avg_results[4]:.2f}")
 print(f"F1 Score: {avg_results[5]:.2f}")
+print(f"Balanced Accuracy: {avg_results[6]:.2f}")
 
 # Final evaluation on the test set
 print("Test set evaluation:")
@@ -164,3 +163,4 @@ print(f"Average Precision-Recall Score: {test_results[2]:.2f}")
 print(f"Precision: {test_results[3]:.2f}")
 print(f"Recall: {test_results[4]:.2f}")
 print(f"F1 Score: {test_results[5]:.2f}")
+print(f"Balanced Accuracy: {test_results[6]:.2f}")
