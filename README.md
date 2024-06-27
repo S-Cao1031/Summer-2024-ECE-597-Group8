@@ -35,6 +35,7 @@
 - Week 3-Preprocess data and extract useful features for languages ​​like , French, and others.         
 - Week 4 - Modify features, extract JS, HTML, and encapsulate them. Make the original data set which has normal emails 10 times larger than phishing emails, and label them.
 - Week 5 - Change the previous code. On the basis that the two features of html and JS only display F and T, if there are several, it will become a numeric type. Build SVM model with k-fold validation.
+- Week 6 - Train the SVM and the RNN models by using three types of features respectively(Tfidf, Bow, word2Vector). Compare the performance of models and feature types through Accuracy, ROC-AUC Score, Pricision, Recall, Average Precision-Recall Score, F1 Score and Balanced Accuracy.
 
 ## Feiyi Xie
 - Week 1: Attend seminars, study 597 guidelines and ask questions
