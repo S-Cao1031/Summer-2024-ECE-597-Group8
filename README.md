@@ -23,7 +23,11 @@
 - Week 2: Find literature, search and read papers related to phishing emails and data characteristics, summarize ideas and sort out ideas, discuss and exchange ideas with teammates
 - Week 3: Preprocess data and extract useful features such as JS, html, link, address, keywords.
 - Week 4: After group discussion, the address and link were deleted. They were already processed data, and the feature was finally extracted into JS and HTML for encapsulation.
-- Week 5: Change the previous code. On the basis that the two features of html and JS only display F and T, if there are several, it will become a numeric type.
+- Week 5: Change the previous code. On the basis that the two features of html and JS only display F and T, if there are several, it will become a numeric type
+  - Train the model with balanced data proportions in the following scenarios:
+  - Decision tree with TF-IDF feature dataset
+  - Decision tree with BoW feature dataset.
+- Week 6:Initial model training decision tree, CNN. Trained using 3 types of features: TFIDF, BoW, word2Vec. And apply techniques like pca and fld to transform the features and see if you can get better or worse results.
 
 ## Xinyi Chen
 - Week 1- Attend seminars, study 597 guidelines and ask questions
