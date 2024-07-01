@@ -47,6 +47,7 @@
   - Implement the training pipeline template (based on Guo’s work), experiment a few transformers on features and TF-IDF features (using SVM). 
   - Propose to change boolean type features to number count, adopt the code to this change. 
 - Week 6: Combined the Word2Vec feature functions and generate processed datasets.
+- Week 7: Experiments on Word2Vec, tried more vector_size and skip-gram, and test it's performance. 
 
 ## Weilong Qian
 
