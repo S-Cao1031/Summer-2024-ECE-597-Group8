@@ -17,6 +17,8 @@
 - Week 6:
   - add word2Vec feature extraction codes
   - initial model training Random forest, naive bayes. train with 3 types of features: TFIDF, BoW, word2Vec. and apply techniques like: pca and fld to transform features to see if can get better or worse results.
+- Week 7:
+  - Hold and participate the initial training results discussion and model selection strategy meeting
 
 ## Zixia Li
 - Week 1: Attend seminars, study 597 guidelines and ask questions
