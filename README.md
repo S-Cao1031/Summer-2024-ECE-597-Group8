@@ -70,6 +70,6 @@
 - Week 4: modify the feature to adjust performance
 - Week 5:  implement the training template
 - Week 6: Prepareing for other course's project and midterm
-- Week 7: Ill
+- Week 7: Tested the performance of SMOTE
 
 
