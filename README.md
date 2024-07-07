@@ -60,7 +60,9 @@
 - Week 2: Literature review&summerize
 - Week 3: Data preprocessing and extracting Keyword feature by using TF-IDF
 - Week 4: Testing the performance of Keyword feature by changing the feature number
-- Week 5:  Create instruments file for members not familiar with models  
+- Week 5:  Create instruments file for members not familiar with models
+- Week 6: Preparing for other course's project and midterm
+- Week 7: SVM param tuning
 
 ## Mingxi Guo
 
@@ -70,6 +72,6 @@
 - Week 4: modify the feature to adjust performance
 - Week 5:  implement the training template
 - Week 6: Prepareing for other course's project and midterm
-- Week 7: Tested the performance of SMOTE
+- Week 7: Tested the performance of SMOTE,participated the three models selection, RNN param tuning
 
 
