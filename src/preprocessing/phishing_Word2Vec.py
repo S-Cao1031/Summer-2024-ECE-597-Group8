@@ -107,7 +107,7 @@ def feature_extract_word2Vec(phishing):
     phishing.loc[:, 'Text'] = phishing.apply(lambda row: ' '.join(row['Subject']) + ' ' + ' '.join(row['Body']), axis=1)
     sentences = phishing['Text'].apply(lambda x: ' '.join(x)).tolist()
     sentences = [sentence.split() for sentence in sentences]
-    word2Vec_model = Word2Vec(sentences=sentences, vector_size=100, window=5, min_count=1, workers=4)
+    word2Vec_model = Word2Vec(sentences=sentences, vector_size=300, window=5, min_count=5, workers=4, sg=1, epochs = 20)
 
     # get text vector
     def text_to_vector(words, model):
