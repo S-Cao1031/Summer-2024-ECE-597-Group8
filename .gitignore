@@ -1,3 +1,5 @@
 .DS_Store
 __pycache__/
 data/raw/
+data/processed/features_word2Vec300_labels.csv
+data/processed/features_word2Vec300sg_labels.csv
