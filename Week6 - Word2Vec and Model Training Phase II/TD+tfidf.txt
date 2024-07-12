@@ -93,8 +93,5 @@ pipeline = Pipeline(
 # Fit the model
 pipeline.fit(X_train, y_train)
 
-# Evaluate the model
-evaluate_model(pipeline, X_train, y_train)
-
-# Evaluate on the entire dataset for comparison
-evaluate_model(pipeline, X, y)
+# Evaluate the model on the test set
+evaluate_model(pipeline, X_test, y_test)
