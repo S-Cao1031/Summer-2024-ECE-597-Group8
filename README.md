@@ -53,6 +53,9 @@
   - Experiments on Word2Vec, tried more vector_size and skip-gram, and test it's performance. 
   - Select SVM, CNN, RNN as our three models for further tuning. 
   - CNN param tuning. 
+- Week 8:
+  - RF tuning optimization. 
+  - PPT draft. 
 
 ## Weilong Qian
 
