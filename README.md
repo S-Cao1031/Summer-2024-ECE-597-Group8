@@ -66,6 +66,7 @@
 - Week 5:  Create instruments file for members not familiar with models
 - Week 6: Preparing for other course's project and midterm
 - Week 7: SVM param tuning
+- Week 8: RF param tuning
 
 ## Mingxi Guo
 
